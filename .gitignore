@@ -3,3 +3,8 @@
 /project/target/
 /target/
 /target/scala-2.13/classes/
+/project/.bsp/
+/project/.idea/
+/conf/evolutions/
+.bsp
+.idea
