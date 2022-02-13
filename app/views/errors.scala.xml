@@ -1,0 +1,13 @@
+@import domain.errors.Error
+@(errors: List[Error])
+
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<errors>
+    @for(e <- errors) {
+    <error>
+        <errorCode>@e.getCode()</errorCode>
+        <errorMessage>@e.getMessage()</errorMessage>
+    </error>
+    }
+</errors>

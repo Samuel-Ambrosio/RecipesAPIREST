@@ -1,0 +1,9 @@
+@import domain.entities.Author
+@(authors: List[Author])
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<authors>
+    @for(a <- authors) {
+        @author(a, false)
+    }
+</authors>

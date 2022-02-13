@@ -1,0 +1,18 @@
+@import domain.entities.Author
+@(author: Author, needXMLTag: Boolean)
+
+@if(needXMLTag) {
+    <?xml version="1.0" encoding="UTF-8" ?>
+}
+
+<author>
+    <id>@author.getId()</id>
+    <whenCreated>@author.getWhenCreated()</whenCreated>
+    <name>@author.getName()</name>
+    <surname>@author.getSurname()</surname>
+    <recipes>
+        @for(r <- author.getRecipes()) {
+            @recipe(r, false, false)
+        }
+    </recipes>
+</author>

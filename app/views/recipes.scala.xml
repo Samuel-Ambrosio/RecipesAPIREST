@@ -1,0 +1,9 @@
+@import domain.entities.Recipe
+@(recipes: List[Recipe])
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<recipes>
+    @for(r <- recipes) {
+        @recipe(r, false, true)
+    }
+</recipes>

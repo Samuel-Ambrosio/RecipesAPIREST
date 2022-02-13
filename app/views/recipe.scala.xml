@@ -1,0 +1,40 @@
+@import domain.entities.Recipe
+@(recipe: Recipe, needXMLTag: Boolean, needAuthorInfo: Boolean)
+
+@if(needXMLTag) {
+    <?xml version="1.0" encoding="UTF-8" ?>
+}
+
+<recipe>
+    <id>@recipe.getId()</id>
+    <whenCreated>@recipe.getWhenCreated()</whenCreated>
+    <title>@recipe.getTitle()</title>
+    <subtitle>@recipe.getSubtitle()</subtitle>
+    <summary>@recipe.getSummary()</summary>
+    @if(needAuthorInfo) {
+        <author>
+            <id>@recipe.getAuthor().getId()</id>
+            <name>@recipe.getAuthor().getName()</name>
+            <surname>@recipe.getAuthor().getSurname()</surname>
+        </author>
+    }
+    <details>
+        <steps>
+            @for(step <- recipe.getDetails().getSteps()) {
+                <step>
+                    <title>@step.getTitle()</title>
+                    <description>@step.getDescription()</description>
+                </step>
+            }
+        </steps>
+        <ingredients>
+            @for(ingredient <- recipe.getDetails().getIngredients()) {
+                <ingredient>
+                    <name>@ingredient.getName()</name>
+                    <quantity>@ingredient.getQuantity()</quantity>
+                    <unit>@ingredient.getUnit()</unit>
+                </ingredient>
+            }
+        </ingredients>
+    </details>
+</recipe>
