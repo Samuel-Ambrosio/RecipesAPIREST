@@ -23,6 +23,7 @@ public class Author extends BaseModel {
         return finder.query().setFirstRow(page).setMaxRows(pageSize).findPagedList();
     }
     public static Author getById(final long id) { return finder.byId(id); }
+    public static void deleteById(final long id) { finder.deleteById(id); }
 
     private String name;
     private String surname;

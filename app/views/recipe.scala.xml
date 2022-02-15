@@ -36,5 +36,20 @@
                 </ingredient>
             }
         </ingredients>
+        <images>
+            @for(image <- recipe.getDetails().getImages()) {
+                <image>@image</image>
+            }
+        </images>
+        <tags>
+            @for(tag <- recipe.getDetails().getTags()) {
+                <tag>@tag</tag>
+            }
+        </tags>
+        <links>
+            @for(link <- recipe.getDetails().getLinks()) {
+                <link>@link</link>
+            }
+        </links>
     </details>
 </recipe>

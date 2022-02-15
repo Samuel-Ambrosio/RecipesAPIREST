@@ -90,4 +90,11 @@ public class AuthorsController extends BaseController {
 
         return result;
     }
+
+    public Result deleteAuthorById(final Http.Request request, final int id) {
+        final Author author = Author.getById(id);
+        if (author != null) Author.deleteById(id);
+
+        return (author == null ? notFound() : ok());
+    }
 }

@@ -6,9 +6,11 @@
 GET     /recipes                            controllers.RecipesController.getRecipes(request: Request, page: Int ?= 0, pageSize: Int ?= 10, all: Option[Boolean])
 GET     /recipes/:id                        controllers.RecipesController.getRecipeById(request: Request, id: Int)
 POST    /recipes                            controllers.RecipesController.createRecipe(request: Request)
+DELETE  /recipes/:id                        controllers.RecipesController.deleteRecipeById(request: Request, id: Int)
+PUT     /recipes/:id                        controllers.RecipesController.updateRecipeById(request: Request, id: Int)
+GET     /search                             controllers.RecipesController.getRecipesByQuerySearch(request: Request, query: String)
 
 GET     /authors                            controllers.AuthorsController.getAuthors(request: Request, page: Int ?= 0, pageSize: Int ?= 10, all: Option[Boolean])
 GET     /authors/:id                        controllers.AuthorsController.getAuthorById(request: Request, id: Int)
 POST    /authors                            controllers.AuthorsController.createAuthor(request: Request)
-# Map static resources from the /public folder to the /assets URL path
-#GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+DELETE  /authors/:id                        controllers.AuthorsController.deleteAuthorById(request: Request, id: Int)

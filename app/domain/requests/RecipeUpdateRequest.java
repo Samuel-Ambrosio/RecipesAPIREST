@@ -4,24 +4,16 @@ import domain.entities.Ingredient;
 import domain.entities.Step;
 import play.data.validation.Constraints;
 
-import javax.validation.Constraint;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecipeRequest {
-    @Constraints.Required
+public class RecipeUpdateRequest {
     private String title;
-    @Constraints.Required
     private String subtitle;
-    @Constraints.Required
     private String summary;
-    @Constraints.Required
     private Long authorId;
-    @Constraints.Required()
     private List<Step> steps = new ArrayList<>();
-    @Constraints.Required
     private List<Ingredient> ingredients = new ArrayList<>();
-    @Constraints.Required
     private List<String> images = new ArrayList<>();
     private List<String> links = new ArrayList<>();
     private List<String> tags = new ArrayList<>();

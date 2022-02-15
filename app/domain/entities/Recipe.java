@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import domain.errors.Error;
 import domain.errors.ErrorCode;
+import io.ebean.Expr;
 import io.ebean.Finder;
 import io.ebean.PagedList;
 
@@ -21,6 +22,13 @@ public class Recipe extends BaseModel {
         return finder.query().setFirstRow(page).setMaxRows(pageSize).findPagedList();
     }
     public static Recipe getById(final long id) { return finder.byId(id); }
+    public static List<Recipe> getQuery(final String query) {
+        return finder.query().where().or(
+                Expr.or(Expr.icontains("title", query), Expr.icontains("details.ingredients.name", query)),
+                Expr.or(Expr.icontains("author.name", query), Expr.icontains("author.surname", query))
+        ).findList();
+    }
+    public static void deleteById(final long id) { finder.deleteById(id); }
 
     private String title;
     private String subtitle;

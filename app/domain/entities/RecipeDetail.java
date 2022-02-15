@@ -23,8 +23,12 @@ public class RecipeDetail extends BaseModel {
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Ingredient> ingredients = new ArrayList<>();
 
-    //private List<String> tags = new ArrayList<>();
-    //private List<String> links = new ArrayList<>();
+    @ElementCollection
+    private List<String> images = new ArrayList<>();
+    @ElementCollection
+    private List<String> tags = new ArrayList<>();
+    @ElementCollection
+    private List<String> links = new ArrayList<>();
 
     @JsonIgnore
     @Override
@@ -35,8 +39,9 @@ public class RecipeDetail extends BaseModel {
 
     public List<Step> getSteps() { return steps; }
     public List<Ingredient> getIngredients() { return ingredients; }
-    //public List<String> getTags() { return tags; }
-    //public List<String> getLinks() { return links; }
+    public List<String> getImages() { return images; }
+    public List<String> getTags() { return tags; }
+    public List<String> getLinks() { return links; }
 
     public void setSteps(List<Step> steps) {
         for (Step step: steps) {
@@ -50,6 +55,9 @@ public class RecipeDetail extends BaseModel {
         }
         this.ingredients = ingredients;
     }
-    //public void setTags(List<String> tags) { this.tags = tags; }
-    //public void setLinks(List<String> links) { this.links = links; }
+    public void setImages(List<String> images) {
+        this.images = images;
+    }
+    public void setTags(List<String> tags) { this.tags = tags; }
+    public void setLinks(List<String> links) { this.links = links; }
 }
