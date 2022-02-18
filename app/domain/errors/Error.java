@@ -14,8 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static domain.errors.ErrorCode.VALIDATION_FAILED;
-import static play.mvc.Results.badRequest;
-import static play.mvc.Results.internalServerError;
+import static play.mvc.Results.*;
 
 public class Error extends Exception {
 
@@ -59,6 +58,8 @@ public class Error extends Exception {
 
         switch (errors[0].code.getHttpStatus()) {
             case Http.Status.BAD_REQUEST: result = isJson ? badRequest(json) : badRequest(xml); break;
+            case Http.Status.NOT_FOUND: result = isJson ? notFound(json) : notFound(xml); break;
+            case Http.Status.CONFLICT:
             case Http.Status.INTERNAL_SERVER_ERROR: break;
         }
 

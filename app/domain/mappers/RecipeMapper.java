@@ -11,11 +11,10 @@ import play.libs.Json;
 
 public class RecipeMapper {
 
-    public static Recipe toEntity(final RecipeRequest recipeRequest) throws Error {
+    public static Recipe toEntity(final RecipeRequest recipeRequest, final long authorId) throws Error {
         final Recipe recipe = new Recipe();
 
-        recipe.setAuthorId(recipeRequest.getAuthorId());
-
+        recipe.setAuthorId(authorId);
         recipe.setTitle(recipeRequest.getTitle());
         recipe.setSubtitle(recipeRequest.getSubtitle());
         recipe.setSummary(recipeRequest.getSummary());

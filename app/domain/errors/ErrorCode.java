@@ -5,7 +5,9 @@ import play.mvc.Http;
 
 public enum ErrorCode {
     VALIDATION_FAILED(Http.Status.BAD_REQUEST, "EC_000001", "Validation failed"),
-    AUTHOR_NOT_FOUND(Http.Status.INTERNAL_SERVER_ERROR, "EC_000002", "Author not found.");
+    AUTHOR_NOT_FOUND(Http.Status.NOT_FOUND, "EC_000002", "Author not found."),
+    USER_EMAIL_ALREADY_REGISTERED(Http.Status.CONFLICT, "EC_000003", "Email already registered."),
+    INVALID_CREDENTIALS(Http.Status.UNAUTHORIZED, "EC_000004", "Invalid credentials.");
 
     private final int httpStatus;
     private final String code;

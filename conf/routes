@@ -5,12 +5,20 @@
 # An example controller showing a sample home page
 GET     /recipes                            controllers.RecipesController.getRecipes(request: Request, page: Int ?= 0, pageSize: Int ?= 10, all: Option[Boolean])
 GET     /recipes/:id                        controllers.RecipesController.getRecipeById(request: Request, id: Int)
++nocsrf
 POST    /recipes                            controllers.RecipesController.createRecipe(request: Request)
++nocsrf
 DELETE  /recipes/:id                        controllers.RecipesController.deleteRecipeById(request: Request, id: Int)
++nocsrf
 PUT     /recipes/:id                        controllers.RecipesController.updateRecipeById(request: Request, id: Int)
+
 GET     /search                             controllers.RecipesController.getRecipesByQuerySearch(request: Request, query: String)
 
 GET     /authors                            controllers.AuthorsController.getAuthors(request: Request, page: Int ?= 0, pageSize: Int ?= 10, all: Option[Boolean])
 GET     /authors/:id                        controllers.AuthorsController.getAuthorById(request: Request, id: Int)
-POST    /authors                            controllers.AuthorsController.createAuthor(request: Request)
-DELETE  /authors/:id                        controllers.AuthorsController.deleteAuthorById(request: Request, id: Int)
+
+POST    /register                           controllers.UsersController.register(request: Request)
+POST    /authenticate                       controllers.UsersController.authenticate(request: Request)
+GET     /profile                            controllers.UsersController.getProfile(request: Request)
++nocsrf
+DELETE  /profile                            controllers.UsersController.delete(request: Request)

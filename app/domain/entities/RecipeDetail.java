@@ -12,11 +12,6 @@ import java.util.List;
 @Table(name = "recipes_details")
 public class RecipeDetail extends BaseModel {
 
-    private static final Finder<Long, RecipeDetail> finder = new Finder<>(RecipeDetail.class);
-
-    public static List<RecipeDetail> getAll() { return finder.all(); }
-    public static RecipeDetail getById(Long id) { return finder.byId(id); }
-
     @OneToMany(cascade= CascadeType.ALL, mappedBy="parentRecipeDetail")
     private List<Step> steps = new ArrayList<>();
 

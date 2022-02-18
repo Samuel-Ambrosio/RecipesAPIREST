@@ -11,7 +11,6 @@ import java.sql.Timestamp;
 @MappedSuperclass
 public class BaseModel extends Model {
     @Id
-    @XmlAttribute
     private Long id;
     @WhenCreated
     private Timestamp whenCreated;
@@ -19,6 +18,6 @@ public class BaseModel extends Model {
     public Long getId() { return id; }
     public Timestamp getWhenCreated() { return whenCreated; }
 
-    /*public void setId(Long id) { this.id = id; }
-    public void setWhenCreated(Timestamp whenCreated) { this.whenCreated = whenCreated; }*/
+    public void setId(Long id) { this.id = id; }
+    public void setWhenCreated(Timestamp whenCreated) { this.whenCreated = whenCreated; }
 }

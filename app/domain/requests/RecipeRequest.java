@@ -15,8 +15,6 @@ public class RecipeRequest {
     private String subtitle;
     @Constraints.Required
     private String summary;
-    @Constraints.Required
-    private Long authorId;
     @Constraints.Required()
     private List<Step> steps = new ArrayList<>();
     @Constraints.Required
@@ -29,7 +27,6 @@ public class RecipeRequest {
     public String getTitle() { return title; }
     public String getSubtitle() { return subtitle; }
     public String getSummary() { return summary; }
-    public Long getAuthorId() { return authorId; }
     public List<Step> getSteps() { return steps; }
     public List<Ingredient> getIngredients() { return ingredients; }
     public List<String> getImages() { return images; }
@@ -39,7 +36,6 @@ public class RecipeRequest {
     public void setTitle(String title) { this.title = title; }
     public void setSubtitle(String subtitle) { this.subtitle = subtitle; }
     public void setSummary(String summary) { this.summary = summary; }
-    public void setAuthorId(Long authorId) { this.authorId = authorId; }
     public void setSteps(List<Step> steps) { this.steps = steps; }
     public void setIngredients(List<Ingredient> ingredients) { this.ingredients = ingredients; }
     public void setImages(List<String> images) { this.images = images; }

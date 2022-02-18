@@ -1,0 +1,9 @@
+@import domain.entities.User
+@(user: User)
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<user>
+    <whenCreated>@user.getWhenCreated()</whenCreated>
+    <email>@user.getEmail()</email>
+    @author(user.getAuthor(), false)
+</user>
