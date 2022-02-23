@@ -3,6 +3,8 @@
 # ~~~~
 
 # An example controller showing a sample home page
+GET     /                                   controllers.HomeController.getPing()
+
 GET     /recipes                            controllers.RecipesController.getRecipes(request: Request, page: Int ?= 0, pageSize: Int ?= 10, all: Option[Boolean])
 GET     /recipes/:id                        controllers.RecipesController.getRecipeById(request: Request, id: Int)
 +nocsrf

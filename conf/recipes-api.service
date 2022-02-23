@@ -1,0 +1,12 @@
+[Unit]
+Description="Recipes API"
+
+[Service]
+WorkingDirectory=/home/ubuntu/recipesapirest-0.1
+ExecStart=/home/ubuntu/recipesapirest-0.1/bin/recipesapirest -Dplay.http.secret.key=recipes_api_secret_key
+ExecStop=/bin/kill -TERM $MAINPID
+Type=Simple
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
