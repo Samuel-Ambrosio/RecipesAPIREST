@@ -19,7 +19,9 @@ GET     /search                             controllers.RecipesController.getRec
 GET     /authors                            controllers.AuthorsController.getAuthors(request: Request, page: Int ?= 0, pageSize: Int ?= 10, all: Option[Boolean])
 GET     /authors/:id                        controllers.AuthorsController.getAuthorById(request: Request, id: Int)
 
++nocsrf
 POST    /register                           controllers.UsersController.register(request: Request)
++nocsrf
 POST    /authenticate                       controllers.UsersController.authenticate(request: Request)
 GET     /profile                            controllers.UsersController.getProfile(request: Request)
 +nocsrf

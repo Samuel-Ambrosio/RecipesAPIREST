@@ -167,7 +167,7 @@ public class RecipesController extends BaseController {
         final Result result;
         switch (contentType) {
             case JSON:
-                result = created(RecipeMapper.toJson(recipe)).as(ContentType.JSON.getContentType());
+                result = ok(RecipeMapper.toJson(recipe)).as(ContentType.JSON.getContentType());
                 break;
             case XML:
                 result = ok(views.xml.recipe.render(recipe, true, true)).as(ContentType.XML.getContentType());

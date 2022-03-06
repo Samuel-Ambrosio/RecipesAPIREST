@@ -1,7 +1,6 @@
 package domain.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import io.ebean.Finder;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
